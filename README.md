@@ -5,7 +5,7 @@ fast way to register a business with Nigeria's Corporate Affairs Commission (CAC
 
 | Skill | For | What it teaches |
 |---|---|---|
-| [`fastcac`](plugins/fastcac/skills/fastcac/SKILL.md) | Anyone using ChatGPT, Claude, Cursor or another AI app | How to use FastCAC's MCP server: check a business name, find the right line of business, explain CAC's rules and fees, and register a business name with you |
+| [`fastcac`](plugins/fastcac/skills/fastcac/SKILL.md) | Anyone using ChatGPT, Claude, Cursor or another AI app | How to use FastCAC's MCP server: check a business name, find the right line of business, explain CAC's rules, give FastCAC's prices, and register a business name with you |
 | [`fastcac-api`](plugins/fastcac-developers/skills/fastcac-api/SKILL.md) | Developers building on the [FastCAC API](https://docs.fastcac.com) | Everything to integrate: keys and test mode, errors, idempotency, webhooks and the wallet, then registering business names and searching, verifying and monitoring businesses (in `references/`, read when needed) |
 
 ## Install
@@ -40,7 +40,7 @@ Capabilities on your own plan, or by an owner in Organization settings on Team a
 ## The MCP server
 
 The `fastcac` skill works with FastCAC's MCP server at `https://api.fastcac.com/mcp`. The name
-checks, fee calculators and CAC register search are free and need no account; registering a business asks you to sign in
+checks, price calculators and CAC register search are free and need no account; registering a business asks you to sign in
 to FastCAC the first time. Setup for each app is at [fastcac.com/ai](https://fastcac.com/ai).
 
 ## The developer skill and docs.fastcac.com
