@@ -20,7 +20,7 @@ ask the person to sign in to FastCAC the first time one is called.
 | `search_cac_register` | Looks up a registered business by name or RC/BN number | Lists what exists; not an availability check |
 | `get_cac_tax_id` | The Tax ID (TIN) CAC shows for a registered business | Takes `company_id`, `rc_number`, `classification_id` from `search_cac_register` |
 
-## Fees, prices and knowledge (free)
+## Prices and knowledge (free)
 
 | Tool | What it does |
 |---|---|

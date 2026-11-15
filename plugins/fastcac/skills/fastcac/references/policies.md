@@ -16,8 +16,9 @@
   `calculate_cac_fees`, `search_knowledge_base` or `get_prices` before saying what it includes.
 - Annual returns: about FastCAC's price per year (`check_annual_returns` or `get_prices`); the
   exact amount is confirmed with CAC before they pay.
-- For work FastCAC's team does by hand (a company, annual return filing, other CAC changes), the
-  team gives the price. Don't quote one.
+- For a company or other CAC changes done by FastCAC's team, the team gives the price. Don't quote
+  one. Annual returns: give about FastCAC's price per year from `check_annual_returns`; the team
+  confirms the exact amount.
 
 ## Refunds
 
