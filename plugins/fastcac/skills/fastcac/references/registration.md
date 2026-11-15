@@ -39,7 +39,8 @@ the billing page is there. Give them that link.
 ## 1. Name and line of business
 
 Check the name ([name-rules.md](name-rules.md)), then `create_business` with the name they want.
-It starts a draft in the workspace they're in.
+It starts a draft in the workspace they last used, or the one you pass: `personal` for their own
+business, `agent` for a client's.
 
 `create_business` can return:
 - `whatsapp_unverified`: a personal registration needs a verified WhatsApp number (it's where
@@ -49,7 +50,8 @@ It starts a draft in the workspace they're in.
   unblocks it.
 
 People registering businesses for clients work in the Business workspace, which needs the Business
-subscription (`get_subscription`, `request_subscription`). There, the NIN, photo and signature are
+subscription (`get_subscription`, `request_subscription`). There's no switching between the two:
+Personal is on platform.fastcac.com and Business on business.fastcac.com, with the same account. There, the NIN, photo and signature are
 the client's: say "your client's NIN", not "your NIN".
 
 ## 2. The form
