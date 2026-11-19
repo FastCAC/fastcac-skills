@@ -14,7 +14,7 @@ Any agent the [skills CLI](https://github.com/vercel-labs/skills) supports (Clau
 Codex, OpenCode and more):
 
 ```bash
-npx skills add devgenix/fastcac-skills
+npx skills add fastcac/fastcac-skills
 ```
 
 Add `--skill fastcac` or `--skill fastcac-api` to install just one, or `-g` to install for every
@@ -23,7 +23,7 @@ project.
 Claude Code, as a plugin (each also connects an MCP server):
 
 ```
-/plugin marketplace add devgenix/fastcac-skills
+/plugin marketplace add fastcac/fastcac-skills
 /plugin install fastcac@fastcac              # using FastCAC from an AI app
 /plugin install fastcac-developers@fastcac   # building on the FastCAC API
 ```
@@ -32,7 +32,7 @@ Claude Code, as a plugin (each also connects an MCP server):
 your agent can read docs.fastcac.com while it works.
 
 Claude (claude.ai and the desktop app): download
-[`fastcac.zip`](https://github.com/devgenix/fastcac-skills/releases/latest/download/fastcac.zip),
+[`fastcac.zip`](https://github.com/fastcac/fastcac-skills/releases/latest/download/fastcac.zip),
 then in Claude open Customize > Skills > + > Create skill > Upload a skill, and choose the file.
 Skills need code execution ("Code execution and file creation") turned on: under Settings >
 Capabilities on your own plan, or by an owner in Organization settings on Team and Enterprise.

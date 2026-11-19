@@ -1,6 +1,6 @@
 # Builds one zip per skill (the skill's folder at the zip's root, as Claude's Skills upload expects)
 # and uploads them to one release, tag `skills`, kept as the latest release, so
-# https://github.com/devgenix/fastcac-skills/releases/latest/download/<skill>.zip always serves
+# https://github.com/fastcac/fastcac-skills/releases/latest/download/<skill>.zip always serves
 # the skills on main. GitHub-hosted runner: this repository is public.
 name: Release skill zips
 

@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": { "name": "FastCAC", "email": "hello@fastcac.com", "url": "https://fastcac.com" },
   "homepage": "https://fastcac.com/ai",
-  "repository": "https://github.com/devgenix/fastcac-skills",
+  "repository": "https://github.com/fastcac/fastcac-skills",
   "license": "MIT",
   "keywords": ["cac", "nigeria", "business-registration", "business-name", "mcp"]
 }
