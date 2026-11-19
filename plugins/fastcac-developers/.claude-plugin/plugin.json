@@ -5,7 +5,7 @@
   "version": "1.1.0",
   "author": { "name": "FastCAC", "email": "hello@fastcac.com", "url": "https://fastcac.com" },
   "homepage": "https://docs.fastcac.com",
-  "repository": "https://github.com/devgenix/fastcac-skills",
+  "repository": "https://github.com/fastcac/fastcac-skills",
   "license": "MIT",
   "keywords": ["cac", "nigeria", "business-registration", "kyb", "api", "webhooks"]
 }
