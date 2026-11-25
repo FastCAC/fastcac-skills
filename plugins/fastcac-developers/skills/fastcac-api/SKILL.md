@@ -121,8 +121,9 @@ officers, monitor) comes from a prepaid wallet. Test and live keys each have the
 - `GET /v1/balance` → `available` (spendable), `held`, `currency` (`NGN`), `low_balance_threshold`,
   `funding_account` (`account_number`, `bank_name`, `account_name`; `null` until active, fake in test).
 - Amounts are naira as decimal strings (`"1245000.00"`). Exception: `payment.succeeded` webhooks use kobo.
-- Fund it by bank transfer to the funding account. Deposits are credited in full and fire
-  `balance.funded`. A large deposit can be `held` until the transfer clears.
+- Fund it by bank transfer to the funding account. Each deposit is credited less the payment
+  provider's fee (1% of the amount, at most ₦300; FastCAC adds nothing), so send the amount needed
+  plus the fee. It fires `balance.funded`. A large deposit can be `held` until the transfer clears.
 - Recommended: fund one registration at a time, when your customer pays you, then submit.
 - A charge the wallet can't cover answers `402 insufficient_balance` and charges nothing; the
   object stays as it was. Fund and retry.
@@ -130,8 +131,11 @@ officers, monitor) comes from a prepaid wallet. Test and live keys each have the
 - `GET /v1/balance/transactions` lists every change (`wallet_transaction`, signed `amount`,
   `balance_after`, `type` such as `deposit`, `registration_charge`, `name_check_charge`,
   `nin_lookup_refund`, `cac_lookup_charge`, `business_monitor_charge`, `adjustment`, `test_credit`).
+  On deposits, `gross_amount` is what was sent, `fee` the deposit fee, and `amount` what was credited;
+  both are `null` on other types. `balance.funded` carries the same three.
 - Test wallet: starts with ₦1,000,000 of test money; add more with
   `POST /v1/test_helpers/deposits {"amount": "350000.00"}` (above 0, at most 10,000,000; test keys only).
+  The deposit fee comes off test deposits too (`350000.00` credits `349700.00`).
 
 Details: https://docs.fastcac.com/guides/balance
 
