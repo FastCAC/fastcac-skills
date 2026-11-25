@@ -24,9 +24,8 @@ ask the person to sign in to FastCAC the first time one is called.
 
 | Tool | What it does |
 |---|---|
-| `get_prices` | FastCAC's own prices, live: registration, the Business plan, annual returns, the smallest wallet top-up, NIN tools, the developer API. Use it every time |
+| `get_prices` | FastCAC's own prices, live: registration, the Business plan, the smallest wallet top-up, NIN tools, the developer API. Use it every time |
 | `calculate_cac_fees` | What registering costs with FastCAC: a business name's all-in price (and the name reservation price), or how to get a quote for a company or an NGO. FastCAC's prices only, never CAC's own fees |
-| `check_annual_returns` | Which annual returns a business name owes, from its registration date, and about what filing them costs with FastCAC |
 | `search_knowledge_base` | FastCAC's articles and policies: refunds, timelines, documents, CAC procedures, CAMA 2020 |
 
 ## NIN tools (free to start, paid on fastcac.com)
@@ -71,8 +70,7 @@ ask the person to sign in to FastCAC the first time one is called.
 
 ## Not available here
 
-Annual return filing isn't on the MCP server yet; FastCAC's team files annual returns (see
-SKILL.md). `check_annual_returns` still works out what's owed.
+Annual returns: FastCAC doesn't file them yet, and no tool works out what's owed (see SKILL.md).
 
 ## Common orders
 
