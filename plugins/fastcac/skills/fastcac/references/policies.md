@@ -37,7 +37,7 @@ Say it like this:
 
 ## Their data, legal and security
 
-- To see, correct or delete their personal data: privacy@fastcac.com. How FastCAC handles it:
+- To see, correct or delete their personal data: privacy@fastcac.com (FastCAC replies within 30 days). How FastCAC handles it:
   https://fastcac.com/legal/privacy.
 - Contracts, the Data Processing Agreement and legal notices: legal@fastcac.com. Every policy is at
   https://fastcac.com/legal.
