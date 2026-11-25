@@ -154,7 +154,7 @@ curl -X POST https://api.fastcac.com/v1/businesses/registrations/$REG_ID/submiss
 | `final_review` | `registration.final_review` | Wait; an officer confirms within about 48 working hours (no weekends). Can still be queried or rejected. |
 | `queried` | `registration.queried` | Answer the query (below), resubmit free. |
 | `approved` | `registration.approved`, then `registration.certificate_ready` | Read `registered_name` and the seven-digit `registration_number`; download PDFs after `certificate_ready`. |
-| `rejected` | `registration.rejected` | Final, not refunded. Start a new registration, usually with another name (charged again). |
+| `rejected` | `registration.rejected` | Final: CAC rejected, withdrew or cancelled it, even while queried (`failure.code` `rejected_by_cac` or `withdrawn_by_cac`). Not refunded. Start a new registration, usually with another name (charged again). |
 
 Editing: `draft` and `verification_failed` allow anything; `queried` allows only the queried fields
 and documents (`400 field_not_queried`); everything else is `409 registration_locked`.
@@ -200,7 +200,8 @@ Test keys never reach CAC. The test wallet is spent by every submit except `insu
 - Use a new `Idempotency-Key` whenever you change `simulate` (the query string is part of the match, so reusing one is a `409`).
 - Move a registration now: `PATCH /v1/test_helpers/businesses/registrations/{id} {"status": "approved"}`
   (from `submitted`: `approved`, `final_review`, `queried`, `rejected`; from `final_review`: `approved`,
-  `queried`, `rejected`; anything else `409 invalid_state`).
+  `queried`, `rejected`; from `queried`: `rejected`, as when CAC withdraws or cancels it; anything else
+  `409 invalid_state`).
 - Name checks in test mode apply only the first three naming rules (no registry search); force answers with
   `?simulate=available|requires_certificate|<reason code>|insufficient_balance`.
 - NIN lookups in test mode always return the test person ADA CHIOMA OBI (female, 1990-04-12);
