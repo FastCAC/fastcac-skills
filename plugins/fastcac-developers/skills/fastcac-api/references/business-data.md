@@ -63,6 +63,7 @@ Returns a `cac_lookup` (`cacl_…`): `name`, `status` (always read fresh), `acti
   name and status are still read on the call. With no copy it's fresh and charged, so check `source`.
   Use it to show officers again; leave it off when you need the record as CAC has it today. It's per
   mode: a test lookup doesn't make a live one free.
+  An erased lookup doesn't count.
 
 | Outcome | Charged |
 |---|---|
@@ -143,6 +144,18 @@ names, `gender`, `date_of_birth`, `phone`, `address`, `photo` (JPEG `data:` URI)
 `consent: true` confirms the person agreed (else `400 consent_required`). Not charged or refunded
 (`nin_lookup_refund`): `422 nin_not_found`, `503 nin_lookup_unavailable`, `402`, `400`. Live: 60 a
 minute. Use it in a registration via the proprietor's `nin_lookup` (see [Registering a business name](registrations.md)).
+
+## Erase personal data (free)
+
+- `DELETE /v1/businesses/lookups/{id}`, `DELETE /v1/businesses/verifications/{id}`,
+  `DELETE /v1/identities/nin_lookups/{id}`, with a key in the same mode. Free and idempotent.
+- Returns the object with `erased_at` set and its personal fields `null` (a lookup's `officers` is `[]`,
+  a verification's `checks` is `null`); `GET` returns the same afterwards. The id, number, register,
+  a verification's `result`, time and charge stay.
+- An erased NIN lookup can't fill in a new proprietor or supply the passport (`400 parameter_invalid`);
+  proprietors it already filled keep their details.
+- Owners and admins can set automatic erasure after 30, 90 or 365 days in the dashboard (Organization
+  settings → Data retention); the default keeps results.
 
 ## Test mode
 
