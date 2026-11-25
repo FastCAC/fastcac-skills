@@ -50,7 +50,8 @@ curl https://api.fastcac.com/v1/identities/nin_lookups \
 - Returns `id` (`ninl_…`), `first_name`, `middle_name`, `last_name`, `gender`, `date_of_birth`,
   `phone`, `address` (one line), `photo` (JPEG `data:` URI), `nimc_data`.
 - Not charged / refunded: `422 nin_not_found`, `503 nin_lookup_unavailable`, `402`, `400`.
-- `GET /v1/identities/nin_lookups/{id}` reads it again for free.
+- `GET /v1/identities/nin_lookups/{id}` reads it again for free; `DELETE` erases its personal data
+  (see business-data.md, "Erase personal data").
 - Set a proprietor's `nin_lookup` to the id: blank `first_name`, `last_name`, `other_names`
   (from `middle_name`), `gender`, `date_of_birth`, `nin` and `phone` are filled from NIMC. Submit then
   refuses a mismatched name, gender or date of birth with `400 nin_mismatch` (before charging), so
