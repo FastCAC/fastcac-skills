@@ -2,8 +2,8 @@
 
 ## Prices
 
-- FastCAC's prices come from `get_prices`, every time: registration, the Business plan, the
-  wallet's smallest top-up, the NIN tools, the developer API. Never from memory, a web page, an older
+- FastCAC's prices come from `get_prices`, every time: registration, reserving a name, the
+  Business plan, the wallet's smallest top-up, the NIN tools, the developer API. Never from memory, a web page, an older
   message or the knowledge base. They change.
 - If `get_prices` fails, don't guess: say they'll see the price on FastCAC before they pay.
 - Only FastCAC's prices, never what CAC itself charges (filing fees, stamp duty, gateway charges,

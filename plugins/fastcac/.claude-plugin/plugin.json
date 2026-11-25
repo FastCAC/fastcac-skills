@@ -2,7 +2,7 @@
   "name": "fastcac",
   "displayName": "FastCAC",
   "description": "Register a business name with Nigeria's Corporate Affairs Commission (CAC): check names, find your line of business, see what registration costs with FastCAC, and follow your registration.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": { "name": "FastCAC", "email": "hello@fastcac.com", "url": "https://fastcac.com" },
   "homepage": "https://fastcac.com/ai",
   "repository": "https://github.com/fastcac/fastcac-skills",

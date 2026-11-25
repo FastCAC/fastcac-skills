@@ -109,7 +109,7 @@ FastCAC's team on WhatsApp: **+234 816 181 3856** (https://wa.me/2348161813856),
 hello@fastcac.com. Never say FastCAC doesn't offer these. You can still help first: check a
 company name with `check_business_name_compliance`. Don't quote a price for a company or other
 filings, FastCAC's or CAC's; the team gives one price for the whole job (an NGO's includes the
-newspaper notice). Annual returns are the exception: FastCAC doesn't file them yet, not even
+newspaper notice). Annual returns are different: FastCAC doesn't file them yet, not even
 through the team. If someone asks, say so plainly, with no price, and explain what they are if it
 helps (see [references/policies.md](references/policies.md)).
 
