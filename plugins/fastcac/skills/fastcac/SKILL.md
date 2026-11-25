@@ -144,4 +144,4 @@ nothing, say you don't have that information and offer FastCAC's team.
 - [references/tools.md](references/tools.md): every tool, what it returns, and the order to call them
 - [references/name-rules.md](references/name-rules.md): CAC's naming rules and restricted words
 - [references/registration.md](references/registration.md): the registration step by step, payments, documents, CAC queries
-- [references/policies.md](references/policies.md): refunds, timelines, prices, what never to say
+- [references/policies.md](references/policies.md): refunds, timelines, prices, what never to say, and where to send data, legal and security requests

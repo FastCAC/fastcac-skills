@@ -35,6 +35,15 @@ Say it like this:
 - A NIN request that was paid for but couldn't be fetched from NIMC (`delivery_failed`) is refunded
   by FastCAC.
 
+## Their data, legal and security
+
+- To see, correct or delete their personal data: privacy@fastcac.com (FastCAC replies within 30 days). How FastCAC handles it:
+  https://fastcac.com/legal/privacy.
+- Contracts, the Data Processing Agreement and legal notices: legal@fastcac.com. Every policy is at
+  https://fastcac.com/legal.
+- A security problem in FastCAC: security@fastcac.com.
+- Everything else, including refunds: hello@fastcac.com.
+
 ## Timelines
 
 - Most certificates are ready within 24 hours of filing.
