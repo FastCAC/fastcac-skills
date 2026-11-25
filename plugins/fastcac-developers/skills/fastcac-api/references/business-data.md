@@ -57,13 +57,20 @@ Returns a `cac_lookup` (`cacl_…`): `name`, `status` (always read fresh), `acti
   `occupation`, `phone`, `email`, `address` (null when hidden at CAC), `shares` (`count`, `type`,
   `percent`), `psc` (control details; often null).
 - Never returns government ID numbers, or people who only filed paperwork.
+- `source` and `fetched_at`: every lookup reads the record fresh from CAC's records (`source: "fresh"`).
+  For a business this organization already looked up (a paid verification doesn't count),
+  `?cache=true` returns our copy free (`source: "cache"`, `amount_charged: "0.00"`, its `fetched_at`);
+  name and status are still read on the call. With no copy it's fresh and charged, so check `source`.
+  Use it to show officers again; leave it off when you need the record as CAC has it today. It's per
+  mode: a test lookup doesn't make a live one free.
 
 | Outcome | Charged |
 |---|---|
 | The record | Yes (`cac_lookup_charge`) |
+| The record from our copy (`cache=true`, a business already looked up) | No |
 | `404 cac_record_missing` | No |
 | `503 lookup_unavailable` | Charged then refunded (`cac_lookup_refund`) |
-| `402 insufficient_balance` (live: checked before the number is searched, so it comes first) | No |
+| `402 insufficient_balance` (live: checked before the number is searched, so it comes first; skipped with `cache=true` for a business already looked up) | No |
 | `503 cac_search_unavailable`, `400` | No |
 
 Live: 60 a minute per organization.
@@ -91,11 +98,13 @@ curl https://api.fastcac.com/v1/businesses/verifications -H "Authorization: Bear
 details as a lookup; `null` when none sent). Officer names match word for word in any order when
 every word of the shorter is in the longer ("Ada Obi" ↔ ADA CHIOMA OBI); initials and common spelling
 variants count, misspellings don't. Only the result and checks are stored, not the other officers;
-use a lookup for everyone.
+use a lookup for everyone. With officers, `source`/`fetched_at` say whether they were checked against
+a fresh record or (with `?cache=true`, for a business already looked up, free) our copy; both are null
+without officers.
 
 | Outcome | Without officers | With officers |
 |---|---|---|
-| A result | Free (`amount_charged: "0.00"`) | Charged (`business_verification_charge`) |
+| A result | Free (`amount_charged: "0.00"`) | Charged (`business_verification_charge`); free with `cache=true` for a business already looked up |
 | `not_found` | Free | Not charged |
 | `503 lookup_unavailable` | n/a | Charged then refunded (`business_verification_refund`) |
 | `503 cac_search_unavailable`, `402`, `400` | Not charged | Not charged |
