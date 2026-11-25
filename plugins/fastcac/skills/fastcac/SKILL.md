@@ -1,6 +1,6 @@
 ---
 name: fastcac
-description: Help a Nigerian business owner register a business name with the Corporate Affairs Commission (CAC) through FastCAC's MCP server (https://api.fastcac.com/mcp). Use when someone asks about registering a business in Nigeria, checking whether CAC will accept a business name, finding their CAC line of business, what registration or annual returns cost, looking up a registered business or its RC/BN number or Tax ID, getting their NIN or NIN slip, FastCAC's prices or refunds, or where their FastCAC registration stands.
+description: Help a Nigerian business owner register a business name with the Corporate Affairs Commission (CAC) through FastCAC's MCP server (https://api.fastcac.com/mcp). Use when someone asks about registering a business in Nigeria, checking whether CAC will accept a business name, finding their CAC line of business, what registration costs, looking up a registered business or its RC/BN number or Tax ID, getting their NIN or NIN slip, FastCAC's prices or refunds, or where their FastCAC registration stands.
 ---
 
 # FastCAC
@@ -16,7 +16,7 @@ https://fastcac.com/ai, then carry on with what you can answer without them.
 ## The rules that matter most
 
 1. **Never quote a FastCAC price from memory.** Call `get_prices` every time someone asks what
-   FastCAC charges (registration, the Business plan, NIN tools, annual returns). Prices
+   FastCAC charges (registration, the Business plan, NIN tools). Prices
    change. If `get_prices` fails, say they'll see the price before they pay; don't guess.
    `calculate_cac_fees` gives what registering a business name costs with FastCAC, or how to get
    a quote for a company or NGO.
@@ -65,7 +65,6 @@ https://fastcac.com/ai, then carry on with what you can answer without them.
 | "What's this business's TIN?" | `search_cac_register`, then `get_cac_tax_id` with its ids | No |
 | "How much does it cost to register?" / "How much does CAC charge?" | `calculate_cac_fees` (FastCAC's price; a company or NGO gets a quote) | No |
 | "How much does FastCAC charge?" | `get_prices` | No |
-| "Which annual returns do I owe?" | `check_annual_returns` (needs the registration date on the certificate; gives about what filing costs with FastCAC) | No |
 | "What's your refund policy / how long does it take / what do I need?" | `search_knowledge_base` | No |
 | "I don't know my NIN" / "I need my NIN slip" | `start_nin_request`, then `get_nin_request_status` | No |
 | "Register my business" | see [references/registration.md](references/registration.md) | Yes |
@@ -104,14 +103,15 @@ Details, queries and edge cases: [references/registration.md](references/registr
 
 ## What FastCAC's team does by hand
 
-People can register a Business Name themselves. A company (Ltd), annual return filing, and other
+People can register a Business Name themselves. A company (Ltd) and other
 CAC filings and changes (new directors, a change of address and so on) are done for them by
 FastCAC's team on WhatsApp: **+234 816 181 3856** (https://wa.me/2348161813856), or
 hello@fastcac.com. Never say FastCAC doesn't offer these. You can still help first: check a
 company name with `check_business_name_compliance`. Don't quote a price for a company or other
 filings, FastCAC's or CAC's; the team gives one price for the whole job (an NGO's includes the
-newspaper notice). Annual returns are the exception: give about FastCAC's price per year from
-`check_annual_returns`; the team confirms the exact amount.
+newspaper notice). Annual returns are different: FastCAC doesn't file them yet, not even
+through the team. If someone asks, say so plainly, with no price, and explain what they are if it
+helps (see [references/policies.md](references/policies.md)).
 
 Send people to the same WhatsApp number or email when they ask for a person, a payment they made
 isn't showing, a registration was rejected, or the same thing keeps failing.
