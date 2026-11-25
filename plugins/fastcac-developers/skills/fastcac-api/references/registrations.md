@@ -196,7 +196,7 @@ Test keys never reach CAC. The test wallet is spent by every submit except `insu
 | `verification_failed` | At once, on `proprietors[0].nin`. Resubmit doesn't charge again. |
 | `insufficient_balance` | `402`, nothing charged. |
 
-- Use a new `Idempotency-Key` whenever you change `simulate` (the query string isn't part of the match).
+- Use a new `Idempotency-Key` whenever you change `simulate` (the query string is part of the match, so reusing one is a `409`).
 - Move a registration now: `PATCH /v1/test_helpers/businesses/registrations/{id} {"status": "approved"}`
   (from `submitted`: `approved`, `final_review`, `queried`, `rejected`; from `final_review`: `approved`,
   `queried`, `rejected`; anything else `409 invalid_state`).

@@ -77,7 +77,8 @@ It only applies to `POST`.
 | First failed | Runs again; failures aren't stored. |
 
 - Keys are scoped to the organization and mode.
-- The match ignores the query string: use a new key when you change `?simulate=`.
+- The match covers the query string too: reusing a key with a different `?simulate=` or `?cache=` is
+  `409 idempotency_key_reused`, so use a new key when you change them.
 - Don't send a key on document uploads: a retried multipart body gets a new boundary and comes back
   `409 idempotency_key_reused`. Re-uploading is safe anyway (it replaces the document).
 - On `500`, retry with the same key.

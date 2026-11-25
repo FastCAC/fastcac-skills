@@ -61,7 +61,8 @@ Returns a `cac_lookup` (`cacl_…`): `name`, `status` (always read fresh), `acti
   For a business this organization already looked up (a paid verification doesn't count),
   `?cache=true` returns our copy free (`source: "cache"`, `amount_charged: "0.00"`, its `fetched_at`);
   name and status are still read on the call. With no copy it's fresh and charged, so check `source`.
-  Use it to show officers again; leave it off when you need the record as CAC has it today.
+  Use it to show officers again; leave it off when you need the record as CAC has it today. It's per
+  mode: a test lookup doesn't make a live one free.
 
 | Outcome | Charged |
 |---|---|
@@ -69,7 +70,7 @@ Returns a `cac_lookup` (`cacl_…`): `name`, `status` (always read fresh), `acti
 | The record from our copy (`cache=true`, a business already looked up) | No |
 | `404 cac_record_missing` | No |
 | `503 lookup_unavailable` | Charged then refunded (`cac_lookup_refund`) |
-| `402 insufficient_balance` (live: checked before the number is searched, so it comes first) | No |
+| `402 insufficient_balance` (live: checked before the number is searched, so it comes first; skipped with `cache=true` for a business already looked up) | No |
 | `503 cac_search_unavailable`, `400` | No |
 
 Live: 60 a minute per organization.
